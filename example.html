@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <ul>
+            <li v-for="language in languages">
+                {{ language }}
+            </li>
+        </ul>
+
+        <p v-for="language in languages">
+            {{ language }}
+        </p>    
+    </div>    
+
+    <div id="brands">
+        <h2>Brands</h2>
+        <div v-for="(list, index) in item">
+            <input type="text" :id=`name-${index}` name="name" v-model="list.name" />
+            {{ list.name }}
+            <br>
+            <button :id=`${list.name}`>{{ list.name }}</button>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            languages: ['PHP', 'Javascript', 'C#', 'SQL', 'C++']
+        }
+    })
+
+    new Vue({
+        el: "#brands",
+        data: {
+            item: [{name: 'Toyota'}, {name:'Suzuki'}],
+        }
+    })
+
+</script>
